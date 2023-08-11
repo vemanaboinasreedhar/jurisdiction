@@ -5,17 +5,20 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vsr.jurisdiction.entity.Jurisdiction;
+import com.vsr.jurisdiction.repository.JurisdictionRepository;
 
 @Service
 public class ApiServiceImpl implements ApiService {
-
+    @Autowired
+    JurisdictionRepository jurisdictionRepository;
 	@Override
 	public Jurisdiction create(Jurisdiction jurisdiction) {
 		
-		return new Jurisdiction() ;
+		return  jurisdictionRepository.save(jurisdiction);
 	}
 
 	@Override
