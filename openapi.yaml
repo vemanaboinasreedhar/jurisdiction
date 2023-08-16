@@ -1,0 +1,339 @@
+---
+openapi: 3.0.1
+info:
+  title: Jurisdiction API
+  description: Retrieve a list of orders or the current status for a given order.
+  version: 1.2.2
+tags:
+- name: Jurisdiction
+  description: Get the current status of an order.
+paths:
+  /api/v1/jurisdiction/data:
+    post:
+      tags:
+      - Jurisdiction
+      summary: List Jurisdiction.
+      description: This operation finds and lists order entities and status information for up to two years from the present date.
+      operationId: create
+      requestBody:
+        description: payload
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Jurisdiction'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Jurisdiction'
+        "400":
+          description: Bad Request
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "401":
+          description: Unauthorized
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "403":
+          description: Forbidden
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "404":
+          description: Not Found
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "405":
+          description: Method Not allowed
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+    get:
+      tags:
+      - Jurisdiction
+      summary: List Jurisdiction.
+      description: This operation finds and lists order entities and status information for up to two years from the present date.
+      operationId: getData
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Jurisdiction'
+        "400":
+          description: Bad Request
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "401":
+          description: Unauthorized
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "403":
+          description: Forbidden
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "404":
+          description: Not Found
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "405":
+          description: Method Not allowed
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+  /api/v1/jurisdiction/data/id/{id}:
+    get:
+      tags:
+      - Jurisdiction
+      summary: Retrieve an Jurisdiction.
+      description: This operation retrieves the order status details for services on a given order.
+      operationId: getDataById
+      parameters:
+      - name: id
+        in: path
+        description: The order number.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Jurisdiction'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+    put:
+      tags:
+      - Jurisdiction
+      summary: Retrieve an Jurisdiction.
+      description: This operation retrieves the order status details for services on a given order.
+      operationId: updateById
+      requestBody:
+        description: payload
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Jurisdiction'
+        required: true
+      parameters:
+      - name: id
+        in: path
+        description: The order number.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Jurisdiction'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'              
+    delete:
+      tags:
+      - Jurisdiction
+      summary: Retrieve an Jurisdiction.
+      description: This operation retrieves the order status details for services on a given order.
+      operationId: deleteById
+      parameters:
+      - name: id
+        in: path
+        description: The order number.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Jurisdiction'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponse'
+components:
+  schemas:
+    JurisdictionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Jurisdiction'
+    Jurisdiction: 
+     type: object
+     properties:
+      id:
+       type: integer
+       format: int32
+       description: Auto generated value
+       example: 1
+      jurisdictionId:
+       type: string
+       description: jurisdictionId.
+       example: jurisdictionId
+      country:
+       type: string
+       description: country.
+       example: country
+      state:
+       type: string
+       description: state.
+       example: state
+      city:
+       type: string
+       description: city.
+       example: city
+      isDefault:
+       type: boolean
+       description: isDefault.
+       example: false
+      isActive:
+       type: boolean
+       description: isActive.
+       example: false
+    Response:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Jurisdiction'
+        error:
+          $ref: '#/components/schemas/ExceptionResponse'
+    ExceptionResponse:
+      type: object
+      properties:
+        exception:
+          $ref: '#/components/schemas/Exception'
+    Exception:
+      required:
+      - httpStatusCode
+      type: object
+      properties:
+        httpStatusCode:
+          type: integer
+          description: HTTP Status Code
+          format: int32
+          example: 400
+        code:
+          type: integer
+          description: Error Code
+          format: int32
+          example: 400002
+        message:
+          type: string
+          description: Lumen defined error message
+          example: Invalid query string
+        detail:
+          type: string
+          description: Additional detail supporting the error
+          example: You are not authorized to view the resource
+    
